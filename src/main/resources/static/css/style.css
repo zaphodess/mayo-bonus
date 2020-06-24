@@ -1,0 +1,39 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css?family=Quicksand&display=swap');
+
+body {
+	background-color: #FFF5EE;
+	color: #A0522D;
+	font-family: 'Quicksand', sans-serif;
+	/* margin: 0 20 0 20; */
+	}
+	
+a {
+	color: #DD6347;
+	text-decoration:none;
+}
+
+a:hover {
+	opacity: 0.5;
+}
+
+.highlight {
+	color: #33A8D9;
+	font-weight: bold;
+}
+
+// Breakpoints for Cards-Width
+.mayo_card {
+	width:50%;
+	margin: 0 auto 10px auto;
+}
+
+@media screen and (max-width: 800px) {
+  .mayo_card {
+    width: 70%;
+  }
+
+@media screen and (max-width: 500px) {
+	  .mayo_card {
+	    width: 90%;
+	  }
