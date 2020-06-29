@@ -30,12 +30,14 @@ public class Image {
 	
 	@Lob
 	private byte[] content;
-	@Enumerated(EnumType.STRING)
-	private ImageFormat imageFormat;
-	public static enum ImageFormat {
-		JPEG, PNG, GIF, SVG;
-	}
+	private String imageFormat;
+	
+//	@Enumerated(EnumType.STRING)
+//	private ImageFormat imageFormat;
+//	public static enum ImageFormat {
+//		JPEG, PNG, GIF, SVG;
+//	}
 	private String fileName;
-	private String referenceId;
+	private Long referenceId;
 
 }

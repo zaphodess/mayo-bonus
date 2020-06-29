@@ -1,26 +1,16 @@
 package de.telekom.mayo.bonus.config;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.URL;
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
-
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-
-import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
-import com.google.common.collect.Sets;
-
 import de.telekom.mayo.bonus.entities.Image;
-import de.telekom.mayo.bonus.entities.Image.ImageFormat;
+//import de.telekom.mayo.bonus.entities.Image.ImageFormat;
 import de.telekom.mayo.bonus.entities.OrderItem;
 import de.telekom.mayo.bonus.entities.Product;
 import de.telekom.mayo.bonus.entities.ProductCategory;
@@ -34,8 +24,8 @@ import de.telekom.mayo.bonus.repositories.UserRepo;
 import de.telekom.mayo.bonus.service.AvailableCoinsService;
 
 @Component
-public class DataLoader implements ApplicationListener<ContextRefreshedEvent>{
-	
+public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
+
 	private UserRepo userRepo;
 	private ProductRepo productRepo;
 	private ProductCategoryRepo productCategoryRepo;
@@ -43,11 +33,10 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent>{
 //	private OrderFormRepo orderFormRepo;
 	private ImageRepo imageRepo;
 	private AvailableCoinsService availableCoinsService;
-	
+
 	@Autowired
 	public DataLoader(UserRepo userRepo, ProductRepo productRepo, ProductCategoryRepo productCategoryRepo,
-			OrderItemRepo orderItemRepo, ImageRepo imageRepo, 
-			AvailableCoinsService availableCoinsService) {
+			OrderItemRepo orderItemRepo, ImageRepo imageRepo, AvailableCoinsService availableCoinsService) {
 		super();
 		this.userRepo = userRepo;
 		this.productRepo = productRepo;
@@ -58,7 +47,6 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent>{
 		this.availableCoinsService = availableCoinsService;
 	}
 
-	
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent event) {
 		
@@ -153,23 +141,18 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent>{
 				.user(user1)
 				.build();
 		orderItemRepo.save(orderItem2);
-
 		
-//		BufferedImage img1 = null;
-//		try {
-//			URL url1 = new URL("http://localhost:8080/img/airplane_graphical_256.png");
-//		    img1 = ImageIO.read(new File());
-//		} catch (IOException e) {
-//		}
-//		Image image1 = Image
-//				.builder()
-//				.imageFormat(ImageFormat.PNG)
-//				.referenceId("pro-Greenpeace-1")
-//				.fileName("airplane_graphical_256.png")
-//				.content(toByteArray(InputStream))
-//				.build();
-//		imageRepo.save(image1);
+		try {
+			Image image1 = new Image();		
+			//image1.setImageFormat("image/jpeg");
+			image1.setContent(DataLoader.class.getResourceAsStream("hummeln-blumenwiese.jpeg").readAllBytes());
+			image1.setReferenceId(1L);			
+			imageRepo.save(image1);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
 		
 	}
-
 }

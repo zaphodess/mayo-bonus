@@ -3,7 +3,7 @@
 	xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head th:include="fragments/head.html :: headFragment">
-<title id="pageTitle">Mayo Bonus-Shop</title>
+<title id="pageTitle">Mayo Bonus-Shop &mdash; Our Prices</title>
 </head>
 
 
@@ -11,34 +11,28 @@
 	<header th:replace="fragments/header.html :: header"> </header>
 
 	<h1>
-		Willkommen im Mayo Bonus-Shop, <span th:text="${first_name}">Newbie</span>!
+		Choose one of these fantastic bonuses!
 	</h1>
 
+<table class="table">
+	<thead class="thead-dark">
+		<th scope="col">&nbsp;<!-- image --></th>
+		<th scope="col">Bonus</th>
+		<th scope="col">Description</th>
+		<th scope="col">Points</th>
+		<th scope="col">&nbsp;<!-- button Detail --></th>
+		<th scope="col">&nbsp;<!-- button Update --></th>
+		<th scope="col">&nbsp;<!-- button Delete --></th>
+	</thead>
+	<tbody id="data-body">
+	 <!--  insert data via JS -->
+	
+	</tbody>
 
-	<div id="no_login" th:if="${account_status}">
-		<h2>
-			Congratulations!!!</br> </br> You have saved <span class='highlight'
-				th:text="${saved_co2}"> yourCo2Saving </span> kg CO2 with Mayo!"
-		</h2>
-		<h2>
-			This means you have earned <span class='highlight'
-				th:text="${your_mayo_coins}"> yourMayoCoins </span> valuable Mayo
-			coins so far!!!!
-		</h2>
-	</div>
+</table>
+<!--  visible for admins?<p><button type="button" class="btn-success">Add new Product</button></p> -->
 
-	<div id="logged_in_user" th:unless="${account_status}">
-		<h2>
-			Please <a href='login.html'>sign in</a> or <a href='register.html'>register</a>.
-		</h2>
-		<h3>This is why you absolutely have to join the Mayo community:</h3>
-		<ul>
-			<li>It's so much nicer to travel together</li>
-			<li>You're going to meet lots of very nice new people</li>
-			<li>You'll help save the planet</li>
-			<li>You can earn Mayo coins and spend them here</li>
-		</ul>
-	</div>
+
 
 
 	<footer th:replace="fragments/footer.html :: footer"></footer>
