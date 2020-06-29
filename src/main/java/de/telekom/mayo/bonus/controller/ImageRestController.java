@@ -57,11 +57,14 @@ public class ImageRestController {
 		Optional<Image> image = imageRepo.findByReferenceId(referenceId);
 	
 		if (image.isPresent()) {
-			HttpHeaders headers = new HttpHeaders ();
+			MultiValueMap<String, String> headers = new HttpHeaders();
 			headers.set(HttpHeaders.CONTENT_TYPE, image.get().getImageFormat());
-			return new ResponseEntity<>(image.get().getContent(), headers, HttpStatus.OK);
+			return ResponseEntity.status(HttpStatus.OK).contentType(MediaType.IMAGE_PNG).header(HttpHeaders.
+					CONTENT_TYPE, image.get().getImageFormat()).body(image.get().getContent());
 		} else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
 		}
+		}
+	
 
-}}
+}

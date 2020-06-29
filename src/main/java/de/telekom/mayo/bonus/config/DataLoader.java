@@ -144,15 +144,31 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 		
 		try {
 			Image image1 = new Image();		
-			//image1.setImageFormat("image/jpeg");
-			image1.setContent(DataLoader.class.getResourceAsStream("hummeln-blumenwiese.jpeg").readAllBytes());
-			image1.setReferenceId(1L);			
+			image1.setImageFormat("image/jpeg");
+			image1.setContent(DataLoader.class.getResourceAsStream("hummeln-blumenwiese.jpg").readAllBytes());
+			image1.setReferenceId(product1.getId());			
 			imageRepo.save(image1);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			
 		}
+		
+//		try {
+//			Image image1 = new Image();		
+//			image1.setImageFormat("image/png");
+//			image1.setContent(DataLoader.class.getResourceAsStream("unhcr.png").readAllBytes());
+//			image1.setReferenceId(product1.getId());			
+//			imageRepo.save(image1);
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//			
+//		}
+
+
+
+
 		
 	}
 }
