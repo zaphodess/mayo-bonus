@@ -15,7 +15,7 @@
 	</h1>
 
 
-	<div id="no_login" th:if="${account_status}">
+	<div id="logged_in_user" th:if="${account_status}">
 		<h2>
 			Congratulations!!!</br> </br> You have saved <span class='highlight'
 				th:text="${saved_co2}"> yourCo2Saving </span> kg CO2 with Mayo!"
@@ -27,7 +27,7 @@
 		</h2>
 	</div>
 
-	<div id="logged_in_user" th:unless="${account_status}">
+	<div id="no_login" th:unless="${account_status}">
 		<h2>
 			Please <a href='login.html'>sign in</a> or <a href='register.html'>register</a>.
 		</h2>

@@ -2,7 +2,7 @@
  * 
  */
 
-( async () => {
+ async function renderProducts () {
   const url = '/api/v1/products';
   let response;
   
@@ -12,35 +12,38 @@
  // console.log( response );
   
   response.forEach (product => {
-	  const entry = `<tr id="data-${product.id}">
-	     <th scope="row">${product.id}</th>
-	     <td>${product.name}</td>
-	     <td>${product.description}</td>
-	     <td>${product.points}</td>
-	     <td><button type="button" class="btn btn-primary btn-sm pl-detail">Details</button></td>
-	     <td><button type="button" class="btn btn-warning btn-sm pl-update" onclick="updateProduct(${product.id})">Update</button></td>
-	     <td><button type="button" class="btn btn-danger btn-sm pl-delete" onclick="deleteProduct(${product.id},this)">Delete</button></td>
-	     </tr>`;
+	  const entry = `<div class="card" id="data-${id}">
+               		    <img class="card-img-top" src="/api/v1/images/byReferenceId/${referenceId}" alt="Your Product">
+               		    <div class="card-body">
+               		      <h5 class="card-title">${name}</h5>
+               		      <p class="card-text">${description}</p>
+               		      <p class="card-text"><small class="text-muted">Points: ${points}</small></p>
+               		      <button type="button" class="btn btn-primary btn-sm pl-detail">Details</button>
+               		    </div>
+               		  </div>`;
 	  
 	  document.querySelector ( '#data-body' ).innerHTML += entry;
 	  
-  })
-
-  document.querySelectorAll('tbody tr').forEach (tr => { 
-	  const id=tr.id.substr(5);
-	  tr.querySelector('.pl-detail').addEventListener('click',() => {showProductDetail(id)});
-  });
+  	}
+  
+  document.querySelectorAll('.card').forEach (div.card => { 
+	  const id=.id.substr(5);
+	 querySelector('.pl-detail').addEventListener('click',() => {showProductDetail(id)});
+  }
+  
+  
   
   function showProductDetail (id){
 	  console.log(id);
   }
-  
-})();
+
 
 function homepage (){
-	documtent.querySelector('#content-main').innerHTML = `
+	documtent.querySelector('#content-main').innerHTML = 
+	
+	const login-state = `
 	<h1>
-		Willkommen im Mayo Bonus-Shop, Newbie!
+		Willkommen im Mayo Bonus-Shop, ${user.name}!
 	</h1>
 
 
@@ -52,9 +55,9 @@ function homepage (){
 			This means you have earned <span class='highlight'> ${availablePoints} </span> valuable Mayo
 			coins so far!!!!
 		</h2>
-	</div>
+	</div>`;
 
-	<div id="no-login">
+	const no-login-state = `<div id="no-login" style="visibility: hidden;>
 		<h2>
 			Please <a href='login.html'>sign in</a> or <a href='register.html'>register</a>.
 		</h2>

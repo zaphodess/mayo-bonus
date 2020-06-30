@@ -154,20 +154,55 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 			
 		}
 		
-//		try {
-//			Image image1 = new Image();		
-//			image1.setImageFormat("image/png");
-//			image1.setContent(DataLoader.class.getResourceAsStream("unhcr.png").readAllBytes());
-//			image1.setReferenceId(product1.getId());			
-//			imageRepo.save(image1);
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//			
-//		}
-
-
-
+		try {
+			Image image2 = new Image();		
+			image2.setImageFormat("image/jpeg");
+			//image2.setContent(DataLoader.class.getResourceAsStream("partei.jpg").readAllBytes());
+			image2.setContent(DataLoader.class.getResourceAsStream("partei.jpg").readAllBytes());
+			image2.setReferenceId(product2.getId());			
+			imageRepo.save(image2);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		
+		try {
+			Image image3 = new Image();		
+			image3.setImageFormat("image/jpeg");
+			image3.setContent(DataLoader.class.getResourceAsStream("baer.jpg").readAllBytes());
+			image3.setReferenceId(product3.getId());			
+			imageRepo.save(image3);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		
+		try {
+			Image image4 = new Image();		
+			image4.setImageFormat("image/jpeg");
+			image4.setContent(DataLoader.class.getResourceAsStream("sos-kinderdorf.jpg").readAllBytes());
+			image4.setReferenceId(product4.getId());			
+			imageRepo.save(image4);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		
+		try {
+			Image image5 = new Image();		
+			image5.setImageFormat("image/jpeg");
+			image5.setContent(DataLoader.class.getResourceAsStream("gabi-klein.jpg").readAllBytes());
+			image5.setReferenceId(10L);			
+			imageRepo.save(image5);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		
 
 		
 	}

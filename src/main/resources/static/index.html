@@ -6,11 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#" onclick="homepage('S');">Mayo Bonus-Shop</a>
+  <a class="navbar-brand" id="brand-link">Mayo Bonus-Shop</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -18,10 +18,10 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" id="home-link">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" onClick"fetchList();">All Bonuses</a>
+        <a class="nav-link" id"all-products">All Bonuses</a>
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -47,7 +47,21 @@
   </div>
 </nav>
 
-<div id="content-main">
+<script>
+homepage();
+const link-a = document.querySelector('#brand-link');
+const link-b = document.querySelector('#home-link');
+const link-c = document.querySelector('#all-products')
+
+link-a.addEventListener('click', () => homepage());
+link-b.addEventListener('click', () => homepage());
+link-c.addEventListener('click', () => renderProducts());
+
+</script>
+
+<div id="content-main">   <!-- to be replaced with Skript -->
+
+	
 
 </div>
 
